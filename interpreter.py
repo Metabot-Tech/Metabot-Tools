@@ -34,6 +34,18 @@ class Interpreter(object):
         order = self.trader.fetch_order(market.upper(), coin.upper(), order_id)
         logger.info("\n{}".format(pprint.pformat(order)))
 
+    def _order_cancel(self, market, coin, order_id):
+        cancellation = self.trader.cancel_order(market.upper(), coin.upper(), order_id)
+        logger.info("\n{}".format(pprint.pformat(cancellation)))
+
+    def _order_sell(self, market, coin, volume, rate):
+        order = self.trader.sell(market, coin, volume, rate)
+        logger.info("\n{}".format(pprint.pformat(order)))
+
+    def _order_buy(self, market, coin, volume, rate):
+        order = self.trader.buy(market, coin, volume, rate)
+        logger.info("\n{}".format(pprint.pformat(order)))
+
     def interpret(self, args):
         command = args.command
 
@@ -41,6 +53,12 @@ class Interpreter(object):
             self._balance()
         elif command == "order":
             self._order_info(args.market, args.coin, args.order_id)
+        elif command == "cancel":
+            self._order_cancel(args.market, args.coin, args.order_id)
+        elif command == "sell":
+            self._order_sell(args.market, args.coin, args.volume, args.rate)
+        elif command == "buy":
+            self._order_buy(args.market, args.coin, args.volume, args.rate)
         else:
             logger.error("Unknown command: {}".format(command))
 

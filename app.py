@@ -21,6 +21,23 @@ def main():
     parser_order.add_argument("coin", action='store')
     parser_order.add_argument("order_id", action='store')
 
+    parser_order = subparsers.add_parser('cancel', help='cancel help')
+    parser_order.add_argument("market", action='store')
+    parser_order.add_argument("coin", action='store')
+    parser_order.add_argument("order_id", action='store')
+
+    parser_order = subparsers.add_parser('sell', help='sell help')
+    parser_order.add_argument("market", action='store')
+    parser_order.add_argument("coin", action='store')
+    parser_order.add_argument("volume", action='store')
+    parser_order.add_argument("rate", action='store')
+
+    parser_order = subparsers.add_parser('buy', help='buy help')
+    parser_order.add_argument("market", action='store')
+    parser_order.add_argument("coin", action='store')
+    parser_order.add_argument("volume", action='store')
+    parser_order.add_argument("rate", action='store')
+
     args = parser.parse_args()
 
     # Interpret command
