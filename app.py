@@ -29,14 +29,14 @@ def main():
     parser_order = subparsers.add_parser('sell', help='sell help')
     parser_order.add_argument("market", action='store')
     parser_order.add_argument("coin", action='store')
-    parser_order.add_argument("volume", action='store')
-    parser_order.add_argument("rate", action='store')
+    parser_order.add_argument("volume", action='store', type=float)
+    parser_order.add_argument("rate", action='store', type=float)
 
     parser_order = subparsers.add_parser('buy', help='buy help')
     parser_order.add_argument("market", action='store')
     parser_order.add_argument("coin", action='store')
-    parser_order.add_argument("volume", action='store')
-    parser_order.add_argument("rate", action='store')
+    parser_order.add_argument("volume", action='store', type=float)
+    parser_order.add_argument("rate", action='store', type=float)
 
     args = parser.parse_args()
 

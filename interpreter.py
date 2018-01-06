@@ -39,11 +39,11 @@ class Interpreter(object):
         logger.info("\n{}".format(pprint.pformat(cancellation)))
 
     def _order_sell(self, market, coin, volume, rate):
-        order = self.trader.sell(market, coin, volume, rate)
+        order = self.trader.sell(market.upper(), coin.upper(), volume, rate)
         logger.info("\n{}".format(pprint.pformat(order)))
 
     def _order_buy(self, market, coin, volume, rate):
-        order = self.trader.buy(market, coin, volume, rate)
+        order = self.trader.buy(market.upper(), coin.upper(), volume, rate)
         logger.info("\n{}".format(pprint.pformat(order)))
 
     def interpret(self, args):
