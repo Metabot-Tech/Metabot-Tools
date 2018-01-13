@@ -17,3 +17,4 @@ services:
     environment:
      - MB_DB_FILE=/metabase/metabase.db
      - VIRTUAL_HOST=metabase.metabot.tech
+     - JAVA_OPTS=-Xms600m -Xmx600m -XX:MaxPermSize=200m
