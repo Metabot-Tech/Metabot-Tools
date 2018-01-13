@@ -17,4 +17,3 @@ services:
     environment:
      - MB_DB_FILE=/metabase/metabase.db
      - VIRTUAL_HOST=metabase.metabot.tech
-     - NETWORK_ACCESS=internal
