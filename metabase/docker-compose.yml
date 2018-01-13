@@ -1,0 +1,20 @@
+version: "3"
+services:
+  nginx-proxy:
+    restart: always
+    image: jwilder/nginx-proxy
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+  metabase:
+    restart: always
+    ports:
+     - 3000:3000
+    image: metabase/metabase
+    volumes:
+     - ./data:/metabase
+    environment:
+     - MB_DB_FILE=/metabase/metabase.db
+     - VIRTUAL_HOST=metabase.metabot.tech
+     - NETWORK_ACCESS=internal
