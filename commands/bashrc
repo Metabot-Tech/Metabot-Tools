@@ -1,0 +1,5 @@
+alias dbuild="sudo docker-compose build"
+alias dup="sudo docker-compose up -d"
+alias dstop="sudo docker-compose stop service"
+alias dstart="sudo docker-compose start service"
+alias dlogs="sudo docker logs artis_service_1 -f"
