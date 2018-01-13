@@ -6,3 +6,6 @@ __pycache__/
 
 # Settings
 settings.yml
+
+# OSX
+.DS_Store
