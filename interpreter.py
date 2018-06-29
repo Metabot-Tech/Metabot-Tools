@@ -46,6 +46,10 @@ class Interpreter(object):
         order = self.trader.buy(market.upper(), coin.upper(), volume, rate)
         logger.info("\n{}".format(pprint.pformat(order)))
 
+    def _ticker(self, market, coin):
+        ticker = self.trader.fetch_rates(market.upper(), coin.upper())
+        logger.info("\n{}".format(ticker))
+
     def interpret(self, args):
         command = args.command
 
@@ -59,6 +63,8 @@ class Interpreter(object):
             self._order_sell(args.market, args.coin, args.volume, args.rate)
         elif command == "buy":
             self._order_buy(args.market, args.coin, args.volume, args.rate)
+        elif command == "ticker":
+            self._ticker(args.market, args.coin)
         else:
             logger.error("Unknown command: {}".format(command))
 

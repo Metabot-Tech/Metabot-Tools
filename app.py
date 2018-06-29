@@ -38,6 +38,10 @@ def main():
     parser_order.add_argument("volume", action='store', type=float)
     parser_order.add_argument("rate", action='store', type=float)
 
+    parser_order = subparsers.add_parser('ticker', help='ticker help')
+    parser_order.add_argument("market", action='store')
+    parser_order.add_argument("coin", action='store')
+
     args = parser.parse_args()
 
     # Interpret command

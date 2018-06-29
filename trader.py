@@ -45,3 +45,6 @@ class Trader(object):
 
     def get_balance(self, market, params={}):
         return self.markets.get(market).fetch_balance(params=params)
+
+    def fetch_rates(self, market, coin):
+        return self.markets.get(market).fetch_ticker(coin)
